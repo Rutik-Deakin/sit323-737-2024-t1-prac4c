@@ -34,6 +34,76 @@ const divisionTwoNumber = (n1, n2) => {
     return n1/n2;
 }
 
+const exponentiateNumbers = (base, exponent) => {
+    return Math.pow(base, exponent);
+}
+
+const squareRootNumber = (number) => {
+    return Math.sqrt(number);
+}
+
+const moduloNumbers = (dividend, divisor) => {
+    return dividend % divisor;
+}
+
+// GET method to handle exponentiation
+app.get("/exponentiateNumbers", (req,res)=>{
+    try {
+        const base = parseInt(req.query.n1);
+        const exponent = parseInt(req.query.n2);
+        // Handle invalid data
+        if (!base || !exponent) {
+            logger.error("Invalid data provided");
+            return res.json({statuscode:422, data: "Invalid data provided" }); 
+        }
+        // If we get valid data
+        const result = exponentiateNumbers(base, exponent);
+        logger.debug(`ExponentiateNumbers called with base:${base} and exponent:${exponent}`);
+        return res.json({statuscode:200, data: result });   
+    } catch (error) {
+        logger.error("Error in ExponentiateNumbers function: ", error);
+    }
+});
+
+// GET method to handle square root
+app.get("/squareRootNumber", (req,res)=>{
+    try {
+        const number = parseInt(req.query.n1);
+        // Handle invalid data
+        if (!number) {
+            logger.error("Invalid data provided");
+            return res.json({statuscode:422, data: "Invalid data provided" }); 
+        }
+        // If we get valid data
+        const result = squareRootNumber(number);
+        logger.debug(`SquareRootNumber called with number:${number}`);
+        return res.json({statuscode:200, data: result });   
+    } catch (error) {
+        logger.error("Error in SquareRootNumber function: ", error);
+    }
+});
+
+// GET method to handle modulo operation
+app.get("/moduloNumbers", (req,res)=>{
+    try {
+        const dividend = parseInt(req.query.n1);
+        const divisor = parseInt(req.query.n2);
+        console.log("divident: ", dividend, " dividor: ", divisor);
+        // Handle invalid data
+        if (!dividend || !divisor) {
+            logger.error("Invalid data provided");
+            return res.json({statuscode:422, data: "Invalid data provided" }); 
+        }
+        // If we get valid data
+        const result = moduloNumbers(dividend, divisor);
+        logger.debug(`ModuloNumbers called with dividend:${dividend} and divisor:${divisor}`);
+        return res.json({statuscode:200, data: result });   
+    } catch (error) {
+        logger.error("Error in ModuloNumbers function: ", error);
+    }
+});
+
+
 //GET method, to handle get request to server
 app.get("/addTwoNumber", (req,res)=>{
     try {

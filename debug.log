@@ -1,1 +1,8 @@
 {"level":"debug","message":"SubtractTwoNumber called with n1:2 and n2: 13","service":"user-service"}
+{"level":"error","message":"Invalid data provided","service":"user-service"}
+{"level":"error","message":"Invalid data provided","service":"user-service"}
+{"level":"error","message":"Invalid data provided","service":"user-service"}
+{"level":"debug","message":"ModuloNumbers called with dividend:2 and divisor:5","service":"user-service"}
+{"level":"debug","message":"SquareRootNumber called with number:25","service":"user-service"}
+{"level":"error","message":"Invalid data provided","service":"user-service"}
+{"level":"debug","message":"ExponentiateNumbers called with base:2 and exponent:3","service":"user-service"}
